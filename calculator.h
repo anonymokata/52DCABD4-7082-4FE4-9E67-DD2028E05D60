@@ -8,7 +8,7 @@ Date: 09/06/2016
 
 #ifndef calculator_H
 #define calculator_H
-
+int romanValue(char r_Character);
 
 
 #endif
