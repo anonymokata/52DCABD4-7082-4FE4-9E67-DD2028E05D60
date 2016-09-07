@@ -101,9 +101,15 @@ char* decimal_roman(int total,char* buffer)
 		}
 	
 	else if(total >=500){ // conversion for 500
+		if(total <(500 + 4*100 )){
 				buffer = postdigits('D',total/500,buffer);
 				total = total - (total/500) * 500;
 			}
+		else{
+				buffer = predigits('C','M',buffer);
+				total = total - (1000-100);
+	}
+	}
 
 	}/*end of while loop*/	
 
