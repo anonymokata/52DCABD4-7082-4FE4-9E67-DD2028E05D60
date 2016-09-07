@@ -4,3 +4,26 @@ Instruction to run the program:
  1) chmod u+x test.sh (Use this command only for the first time)
  2) ./test.sh
 
+
+Sample output:
+
+vinay@ubuntu:~/Roman_Calculator1$ ./test.sh
+gcc -Wall -c calculator-test.c
+gcc -Wall -c calculator.c
+gcc -o calc-test calculator.o calculator-test.o -lcheck -lpthread -lm -lrt
+./calc-test
+Running suite(s): Core
+Number exceeds the maximum limit 
+Invalid option 
+100%: Checks: 1, Failures: 0, Errors: 0
+
+Algorithm:
+
+1) Function calculate receieves the input of first roman number, second roman number, 
+   addition/subtraction operation and buffer to hold the output.
+2) Function calculate passes first roman number and second roman number 
+   to roman_decimal function which returns the decimal value of the roman number.
+3) Function calculate calculates the addition or subtraction operation depending upon the operation passed to it.
+4) After performing addition or subtraction operation it passes the decimal value to decimal_roman function.
+5) decimal_roman function converts back the decimal value to the roman value and retruns the value to the calculate function.
+6) Function calculate returns the output to the test case which inturn verifies the output with the expected output.

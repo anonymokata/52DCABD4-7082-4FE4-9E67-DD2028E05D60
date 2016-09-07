@@ -2,8 +2,8 @@
 Roman calculator: performs addition and subtraction of roman values
 Author: Vinay vittal Karagod
 File dependents: main.c, calculator.h, calculator.c,calculator-test.check
-Date: 09/06/2016
-*/
+Date: 09/07/2016
+ */
 
 # include "calculator.h"
 # include <check.h>
@@ -39,36 +39,36 @@ int romanValue(char r_Character)
 }
 
 int roman_decimal(char number[])
-	{
+{
 	int index_value = 0;
 	int decnum = 0; // value to store the dicimal value 
 	while(number[index_value] == 'I' || number[index_value] == 'V' || number[index_value] == 'X' || number[index_value] == 'L'|| number[index_value] == 'C' || number[index_value] == 'D' || number[index_value] == 'M')
 	{
 
-	if(romanValue(number[index_value]) < 0) // condition to check the invalid numbers
+		if(romanValue(number[index_value]) < 0) // condition to check the invalid numbers
 		{
 			printf("%d",romanValue(number[index_value]));
 			printf("Invalid roman digit : %c",number[index_value]);
 			exit(0);
 		}
-	if((strlen(number) - index_value) > 2)
+		if((strlen(number) - index_value) > 2)
 		{
 			if(romanValue(number[index_value]) < romanValue(number[index_value+2])){
 				printf("Invalid roman number");
-				
+
 			}
 		}
-	if(romanValue(number[index_value]) >= romanValue(number[index_value+1])) // reading each roman from the string
+		if(romanValue(number[index_value]) >= romanValue(number[index_value+1])) // reading each roman from the string
 			decnum = decnum + romanValue(number[index_value]);
 		else{
 			decnum = decnum + (romanValue(number[index_value+1]) - romanValue(number[index_value]));
 			index_value++;
 			decnum = -1;
+		}
+		index_value++;
+
 	}
-	index_value++;
-	
-	}
-return decnum;
+	return decnum;
 }
 // storing the predigits for example: 40 has to be stored as XL 
 char* predigits(char character1,char character2,char* buffer)
@@ -92,28 +92,28 @@ char* postdigits(char character,int count,char* buffer)
 }
 
 char* decimal_roman(int total,char* buffer)
-	{
+{
 	char *roman_num = buffer;
 
 	while(total !=0)
 	{
-	if(total >= 1000){ // converstion for 1000
+		if(total >= 1000){ // converstion for 1000
 			buffer = postdigits('M',total/1000,buffer);
 			total = total - (total/1000) * 1000;
 		}
-	
-	else if(total >=500){ // conversion for 500
-		if(total <(500 + 4*100 )){
+
+		else if(total >=500){ // conversion for 500
+			if(total <(500 + 4*100 )){
 				buffer = postdigits('D',total/500,buffer);
 				total = total - (total/500) * 500;
 			}
-		else{
+			else{
 				buffer = predigits('C','M',buffer);
 				total = total - (1000-100);
-	}
-	} /*end of if(total >=500)*/
-	
-	else if(total >=100){ // conversion for 100
+			}
+		} /*end of if(total >=500)*/
+
+		else if(total >=100){ // conversion for 100
 			if(total < (100 + 3 * 100)){
 				buffer = postdigits('C',total/100,buffer);
 				total = total - (total/100) * 100;
@@ -169,7 +169,7 @@ char* decimal_roman(int total,char* buffer)
 	}/*end of while loop*/	
 
 	*buffer = '\0';
-return roman_num;
+	return roman_num;
 }
 
 char* calculate(char roman_number1[50],char roman_number2[50], char option[10],char* buffer)
@@ -192,7 +192,7 @@ char* calculate(char roman_number1[50],char roman_number2[50], char option[10],c
 			answer = decimal_roman(sum,buffer);
 	} /* END of addition operation*/
 
-else if(strcmp(option,"SUBTRACT") == 0) // check for the subtraction operation
+	else if(strcmp(option,"SUBTRACT") == 0) // check for the subtraction operation
 	{
 		sub = first_number - second_number;
 		if(sub > 3999)
@@ -211,7 +211,7 @@ else if(strcmp(option,"SUBTRACT") == 0) // check for the subtraction operation
 		answer = "-1";	
 	}	
 
-return answer;
+	return answer;
 
 
 }/* End of calculate function*/

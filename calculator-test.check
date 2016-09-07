@@ -2,7 +2,7 @@
 Roman calculator: performs addition and subtraction of roman values
 Author: Vinay vittal Karagod
 File dependents: main.c, calculator.h, calculator.c,calculator-test.check
-Date: 09/06/2016
+Date: 09/07/2016
 calculator-test.check: Test file used to pass the input values to calculate roman numbers.
 */
 
@@ -20,7 +20,7 @@ ck_assert_msg(romanValue('C') == 100,"operation failed for C");
 ck_assert_msg(romanValue('D') == 500,"operation failed for D");
 ck_assert_msg(romanValue('M') == 1000,"operation failed for M");
 ck_assert_msg(romanValue('\0') == 0,"operation failed for end of line");
-ck_assert_msg(romanValue('K') == -1,"operation failed for passing empty file");
+ck_assert_msg(romanValue('K') == -1,"operation failed for passing wrong input");
 
 
 /*condition to check the string of roman numbers*/
