@@ -1,0 +1,6 @@
+C program to perform roman addition and roman subtraction
+
+Instruction to run the program:
+ 1) chmod u+x test.sh (Use this command only for the first time)
+ 2) ./test.sh
+
