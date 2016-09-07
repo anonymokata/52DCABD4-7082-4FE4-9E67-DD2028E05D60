@@ -109,7 +109,29 @@ char* decimal_roman(int total,char* buffer)
 				buffer = predigits('C','M',buffer);
 				total = total - (1000-100);
 	}
-	}
+	} /*end of if(total >=500)*/
+	
+	else if(total >=100){ // conversion for 100
+			if(total < (100 + 3 * 100)){
+				buffer = postdigits('C',total/100,buffer);
+				total = total - (total/100) * 100;
+			}
+			else{
+				buffer = predigits('L','D',buffer);
+				total = total - (500-100);
+			}
+		}/* end of if(total >=100) */
+		else if(total >=50){ // conversion for 50
+			if(total < (50 + 4 * 10)){
+				buffer = postdigits('L',total/50,buffer);
+				total = total - (total/50) * 50;
+			}
+			else{
+				buffer = predigits('X','C',buffer);
+				total = total - (100-10);
+			}
+		} /*end of if(total >=50) */
+
 
 	}/*end of while loop*/	
 
