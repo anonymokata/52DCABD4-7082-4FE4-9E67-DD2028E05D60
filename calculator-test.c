@@ -47,6 +47,14 @@ ck_assert_msg(strcmp(decimal_roman(150,buffer),"CL") == 0,"Operation failed to c
 ck_assert_msg(strcmp(decimal_roman(15,buffer),"XV") == 0,"Operation failed to convert decimal to roman");
 ck_assert_msg(strcmp(decimal_roman(4,buffer),"IV") == 0,"Operation failed to convert decimal to roman");
 
+/*condition to perform addition and subtraction operation of roman numbers*/
+ck_assert_msg(strcmp(calculate("M","D","ADD",buffer),"MD") == 0,"Operation failed to return the roman value");
+ck_assert_msg(strcmp(calculate("MM","MM","ADD",buffer),"-1") == 0,"limit exceeds maximum value");
+
+
+
+
+
 
 
 

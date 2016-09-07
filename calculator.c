@@ -170,6 +170,33 @@ char* decimal_roman(int total,char* buffer)
 return roman_num;
 }
 
+char* calculate(char roman_number1[50],char roman_number2[50], char option[10],char* buffer)
+{
+	int first_number, second_number; // to store roman values
+	int sum = 0;
+	first_number = roman_decimal(roman_number1); // calling roman_decimal function to convert first roman number to decimal
+	second_number = roman_decimal(roman_number2); // calling roman_decimal function to convert second roman number to decimal
+	char * answer; // to store the final result
+
+	if(strcmp(option,"ADD") == 0) // check for the addition operation
+	{
+		sum =  first_number + second_number;
+		if(sum > 3999)
+		{
+			printf("Number exceeds the maximum limit \n");
+			answer = "-1";
+		}
+		else
+			answer = decimal_roman(sum,buffer);
+	}
+
+return answer;
+
+
+}/* End of calculate function*/
+
+
+
 
 
 
