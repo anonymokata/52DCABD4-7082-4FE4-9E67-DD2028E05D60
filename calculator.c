@@ -68,5 +68,43 @@ int roman_decimal(char number[])
 	}
 return decnum;
 }
+// storing the predigits for example: 40 has to be stored as XL 
+char* predigits(char character1,char character2,char* buffer)
+{
+	*buffer = character1;
+	buffer++;
+	*buffer = character2;
+	buffer++;
+	return buffer;
+}
+
+//storing the post digits
+char* postdigits(char character,int count,char* buffer)
+{
+	int loop;
+	for(loop=0;loop<count;loop++){
+		*buffer = character;
+		buffer++;
+	}
+	return buffer;
+}
+
+char* decimal_roman(int total,char* buffer)
+	{
+	char *roman_num = buffer;
+
+	while(total !=0)
+	{
+	if(total >= 1000){ // converstion for 1000
+			buffer = postdigits('M',total/1000,buffer);
+			total = total - (total/1000) * 1000;
+		}
+	}	
+
+	*buffer = '\0';
+return roman_num;
+}
+
+
 
 

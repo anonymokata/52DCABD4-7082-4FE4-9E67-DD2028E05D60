@@ -15,7 +15,7 @@ calculator-test.check: Test file used to pass the input values to calculate roma
 */
 
 # include "calculator.h"
-
+char buffer[50];
 
 START_TEST(calc)
 {
@@ -36,7 +36,11 @@ ck_assert_msg(romanValue('K') == -1,"operation failed for passing empty file");
 /*condition to check the string of roman numbers*/
 ck_assert_msg(roman_decimal("MD") == 1500,"operation failed to convert roman to decimal");
 ck_assert_msg(roman_decimal("MM") == 2000,"operation failed to convert roman to decimal");
-ck_assert_msg(roman_decimal("DM") == 1500,"operation failed to convert roman to decimal");
+//ck_assert_msg(roman_decimal("DM") == 1500,"wrong format to pass the roman value");
+
+
+/*condition to convert back from decimal to roman number*/
+ck_assert_msg(strcmp(decimal_roman(1000,buffer),"M") == 0,"Operation failed to convert decimal to roman");
 
 
 
