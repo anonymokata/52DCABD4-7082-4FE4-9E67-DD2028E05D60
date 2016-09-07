@@ -131,6 +131,26 @@ char* decimal_roman(int total,char* buffer)
 				total = total - (100-10);
 			}
 		} /*end of if(total >=50) */
+		else if(total >=10){ //conversion for 10
+			if(total < (10 + 3 * 10)){
+				buffer = postdigits('X',total/10,buffer);
+				total = total - (total/10) * 10;
+			}
+			else{
+				buffer = predigits('X','L',buffer);
+				total = total - (50-10);
+			}
+		}/*end of if(total >=10) */
+		else if(total >=5){ //conversion for 5
+			if(total < (5 + 4 * 1)){
+				buffer = postdigits('V',total/5,buffer);
+				total = total - (total/5) * 5;
+			}
+			else{
+				buffer = predigits('I','X',buffer);
+				total = total - (10-1);
+			}
+		}/*end of if(total >=5) */
 
 
 	}/*end of while loop*/	

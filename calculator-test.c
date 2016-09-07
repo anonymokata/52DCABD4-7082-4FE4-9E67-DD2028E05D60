@@ -44,6 +44,7 @@ ck_assert_msg(strcmp(decimal_roman(1000,buffer),"M") == 0,"Operation failed to c
 ck_assert_msg(strcmp(decimal_roman(1500,buffer),"MD") == 0,"Operation failed to convert decimal to roman");
 ck_assert_msg(strcmp(decimal_roman(1900,buffer),"MCM") == 0,"Operation failed to convert decimal to roman");
 ck_assert_msg(strcmp(decimal_roman(150,buffer),"CL") == 0,"Operation failed to convert decimal to roman");
+ck_assert_msg(strcmp(decimal_roman(15,buffer),"XV") == 0,"Operation failed to convert decimal to roman");
 
 
 
