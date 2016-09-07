@@ -151,6 +151,17 @@ char* decimal_roman(int total,char* buffer)
 				total = total - (10-1);
 			}
 		}/*end of if(total >=5) */
+		else if(total >=1){ // conversion for 1
+			if(total < 4)
+			{
+				buffer = postdigits('I',total/1,buffer);
+				total = total - (total/1) * 1;
+			}
+			else{
+				buffer = predigits('I','V',buffer);
+				total = total - (5-1);
+			}
+		}/*end of if(total >=1) */
 
 
 	}/*end of while loop*/	
