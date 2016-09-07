@@ -35,6 +35,8 @@ ck_assert_msg(romanValue('K') == -1,"operation failed for passing empty file");
 
 /*condition to check the string of roman numbers*/
 ck_assert_msg(roman_decimal("MD") == 1500,"operation failed to convert roman to decimal");
+ck_assert_msg(roman_decimal("MM") == 2000,"operation failed to convert roman to decimal");
+ck_assert_msg(roman_decimal("DM") == 1500,"operation failed to convert roman to decimal");
 
 
 
