@@ -62,7 +62,7 @@ int roman_decimal(char number[])
 			decnum = decnum + romanValue(number[index_value]);
 		else{
 			decnum = decnum + (romanValue(number[index_value+1]) - romanValue(number[index_value]));
-			
+			index_value++;
 	}
 	index_value++;
 	}
