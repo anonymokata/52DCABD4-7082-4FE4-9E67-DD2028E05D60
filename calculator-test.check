@@ -31,6 +31,7 @@ ck_assert_msg(roman_decimal("DM") == 1500,"wrong format to pass the roman value"
 
 /*condition to convert back from decimal to roman number*/
 ck_assert_msg(strcmp(decimal_roman(1000,buffer),"M") == 0,"Operation failed to convert decimal to roman");
+ck_assert_msg(strcmp(decimal_roman(1500,buffer),"MD") == 0,"Operation failed to convert decimal to roman");
 
 
 

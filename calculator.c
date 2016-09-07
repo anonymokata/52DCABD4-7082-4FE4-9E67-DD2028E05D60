@@ -99,7 +99,13 @@ char* decimal_roman(int total,char* buffer)
 			buffer = postdigits('M',total/1000,buffer);
 			total = total - (total/1000) * 1000;
 		}
-	}	
+	
+	else if(total >=500){ // conversion for 500
+				buffer = postdigits('D',total/500,buffer);
+				total = total - (total/500) * 500;
+			}
+
+	}/*end of while loop*/	
 
 	*buffer = '\0';
 return roman_num;
