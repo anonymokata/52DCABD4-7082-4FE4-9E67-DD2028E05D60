@@ -55,7 +55,7 @@ int roman_decimal(char number[])
 		{
 			if(romanValue(number[index_value]) < romanValue(number[index_value+2])){
 				printf("Invalid roman number");
-				exit(0);
+				
 			}
 		}
 	if(romanValue(number[index_value]) >= romanValue(number[index_value+1])) // reading each roman from the string
@@ -63,8 +63,10 @@ int roman_decimal(char number[])
 		else{
 			decnum = decnum + (romanValue(number[index_value+1]) - romanValue(number[index_value]));
 			index_value++;
+			decnum = -1;
 	}
 	index_value++;
+	
 	}
 return decnum;
 }
@@ -173,7 +175,7 @@ return roman_num;
 char* calculate(char roman_number1[50],char roman_number2[50], char option[10],char* buffer)
 {
 	int first_number, second_number; // to store roman values
-	int sum = 0;
+	int sum = 0,sub = 0;
 	first_number = roman_decimal(roman_number1); // calling roman_decimal function to convert first roman number to decimal
 	second_number = roman_decimal(roman_number2); // calling roman_decimal function to convert second roman number to decimal
 	char * answer; // to store the final result
@@ -188,15 +190,28 @@ char* calculate(char roman_number1[50],char roman_number2[50], char option[10],c
 		}
 		else
 			answer = decimal_roman(sum,buffer);
+	} /* END of addition operation*/
+
+else if(strcmp(option,"SUBTRACT") == 0) // check for the subtraction operation
+	{
+		sub = first_number - second_number;
+		if(sub > 3999)
+		{
+			printf("Number exceeds the maximum limit \n");
+			answer = "-1";
+		}
+		else				
+			answer = decimal_roman(abs(sub),buffer); 
+		/*Note: As there are no negative numbers in roman 
+		  considering the absolute value of the negative number*/
 	}
+	else
+	{
+		printf("Invalid option \n");	
+		answer = "-1";	
+	}	
 
 return answer;
 
 
 }/* End of calculate function*/
-
-
-
-
-
-
