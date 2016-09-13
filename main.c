@@ -8,6 +8,7 @@ Date: 09/06/2016
 # include "calculator.h"
 # include "roman_decimal.h"
 # include "decimal_roman.h"
+# include "error.h"
 # include <assert.h>
 # include <stdio.h>
 # include <check.h>

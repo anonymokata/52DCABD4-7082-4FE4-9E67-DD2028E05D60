@@ -9,6 +9,7 @@ calculator-test.check: Test file used to pass the input values to calculate roma
 # include "calculator.h"
 # include "roman_decimal.h"
 # include "decimal_roman.h"
+# include "error.h"
 char buffer[50];
 
 #test roman_digit_to_decimal
@@ -49,7 +50,8 @@ ck_assert_msg(strcmp(calculate_roman_numbers("M","D","ADD",buffer),"MD") == 0,"O
 ck_assert_msg(strcmp(calculate_roman_numbers("M","D","add",buffer),"MD") == 0,"Operation failed to return the roman value");
 
 #test roman_subtraction
-ck_assert_msg(strcmp(calculate_roman_numbers("M","D","SUBTRACT",buffer),"D") == 0,"Operation failed to return the roman value");
+ck_assert_msg(strcmp(calculate_roman_numbers("MMMMD","D","SUBTRACT",buffer),"MMMM") == 0,"Operation failed to return the roman value");
+ck_assert_msg(strcmp(calculate_roman_numbers("M","D","subtract",buffer),"D") == 0,"Operation failed to return the roman value");
 
 #test invalid_operation
 ck_assert_msg(strcmp(calculate_roman_numbers("M","D","XXX",buffer),"0") != 0,"Passed invalid option");

@@ -1,22 +1,52 @@
 C program to perform roman addition and roman subtraction
 
+
+Roman calculator: performs addition and subtraction of roman values
+Author		: Vinay vittal Karagod
+File dependents	: main.c, calculator.h, calculator.c,calculator-test.c,
+			decimal_roman.c, decimal_roman.h, roman_decimal.c, roman_decimal.h, error.c, error.h
+Date		: 09/13/2016
+-------------------------------------------------------------------
 Instruction to run the program:
- 1) chmod u+x test.sh (Use this command only for the first time)
- 2) ./test.sh
+1) make -f calc.makefile test
+----------------------------------------------------------------------
+To add more test cases use calculator-test.c file
 
+START_TEST(roman_addition_small_numbers)
+{
+ck_assert_msg(strcmp(calculate_roman_numbers("II","II","ADD",buffer),"IV") == 0,"Operation failed to return the roman value");
+ck_assert_msg(strcmp(calculate_roman_numbers("V","V","add",buffer),"X") == 0,"Operation failed to return the roman value");
+}
+END_TEST
 
+tcase_add_test(tc1_1, roman_addition_small_numbers);
+-------------------------------------------------------------------------
 Sample output:
 
-vinay@ubuntu:~/Roman_Calculator1$ ./test.sh
+vinay@ubuntu:~/Roman_Calculator1$ make -f calc.makefile test
 gcc -Wall -c calculator-test.c
-gcc -Wall -c calculator.c
-gcc -o calc-test calculator.o calculator-test.o -lcheck -lpthread -lm -lrt
+gcc -o calc-test calculator.o decimal_roman.o roman_decimal.o errors.o calculator-test.o -lcheck -lpthread -lm -lrt
 ./calc-test
 Running suite(s): Core
-Number exceeds the maximum limit 
-Invalid option 
-100%: Checks: 1, Failures: 0, Errors: 0
+format of the roman string is invalid := DM 
+format of the roman string is invalid := MMMDM 
+subtraction of two values is greater than the maximum limit (3999) := 4000 
+passed otherthan addition or subtraction operation := XXX 
+sum of two values is greater than the maximum limit (3999) := 4000 
+100%: Checks: 11, Failures: 0, Errors: 0
+-----------------------------------------------------------------------------------
 
+files description:
+calculator-test.c: This file is used to pass the test cases to the functions
+
+calculator.h, calculator.c: These files used to call all the other functions to perform addition and subtraction operation
+
+roman_decimal.c, roman_decimal.h: These files are used to convert the roman string to decimal string
+
+decimal_roman.c, decimal_roman.h: These files are used to convert decimal number to roman string
+
+error.c, error.h: These files are used to handle the errors in the program
+--------------------------------------------------------------------------------------
 Algorithm:
 
 1) Function calculate receieves the input of first roman number, second roman number, 

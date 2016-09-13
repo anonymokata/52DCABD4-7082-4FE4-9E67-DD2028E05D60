@@ -1,8 +1,10 @@
 /* 
 Roman calculator: performs addition and subtraction of roman values
-Author: Vinay vittal Karagod
-File dependents: main.c, calculator.h, calculator.c,calculator-test.check
-Date: 09/07/2016
+Author		: Vinay vittal Karagod
+File dependents	: main.c, calculator.h, calculator.c,calculator-test.c,
+			decimal_roman.c, decimal_roman.h, roman_decimal.c, roman_decimal.h, error.c, error.h
+Date		: 09/13/2016
+
 */
 
 
